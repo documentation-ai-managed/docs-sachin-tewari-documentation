@@ -1,0 +1,158 @@
+---
+title: Managing Orders
+description: How to place, track, and manage food orders with Dropdawg
+---
+
+## Order Management Overview
+
+Dropdawg streamlines the food ordering process from selection to delivery. Our intuitive interface guides you through browsing menus, customizing orders, and completing secure payments. Once placed, track your order in real-time and communicate with your delivery driver.
+
+<Callout kind="tip">
+  Add items to your cart and review your order before checkout to avoid mistakes.
+</Callout>
+
+## Placing an Order
+
+Ordering food with Dropdawg is designed to be quick and effortless. Follow these steps to place your first order.
+
+<Steps>
+  <Step title="Select a Restaurant" icon="store">
+    Browse nearby restaurants or search by cuisine type.
+  </Step>
+  <Step title="Choose Your Items" icon="shopping-bag">
+    Add dishes to your cart and customize as needed.
+  </Step>
+  <Step title="Review and Checkout" icon="check-circle">
+    Confirm your order details and payment method.
+  </Step>
+  <Step title="Confirm Order" icon="thumbs-up">
+    Receive order confirmation and estimated delivery time.
+  </Step>
+</Steps>
+
+## Order Customization
+
+Personalize your meal with our extensive customization options. Most restaurants allow you to modify ingredients, adjust spice levels, and add special requests.
+
+<Tabs>
+  <Tab title="Menu Customization" icon="edit">
+    Modify dish ingredients and preparation methods.
+    
+    <Expandable title="Common Customizations" default-open="true">
+      Remove allergens, adjust spice levels, or request extra toppings.
+    </Expandable>
+  </Tab>
+  <Tab title="Special Instructions" icon="message-square">
+    Add notes for the restaurant or delivery driver.
+    
+    <Expandable title="Delivery Notes" default-open="true">
+      Specify delivery preferences like "leave at door" or "ring doorbell."
+    </Expandable>
+  </Tab>
+</Tabs>
+
+## Payment Options
+
+Dropdawg supports multiple secure payment methods to suit your preferences. All transactions are encrypted and processed through certified payment gateways.
+
+<Columns cols={2}>
+  <Card title="Credit/Debit Cards" icon="credit-card" href="#card-payment">
+    Visa, Mastercard, and American Express accepted.
+  </Card>
+  <Card title="Digital Wallets" icon="smartphone" href="#wallet-payment">
+    Apple Pay, Google Pay, and PayPal integration.
+  </Card>
+</Columns>
+
+<Columns cols={2}>
+  <Card title="Cash on Delivery" icon="dollar-sign" href="#cash-payment">
+    Pay the driver in cash upon delivery.
+  </Card>
+  <Card title="Gift Cards" icon="gift" href="#gift-cards">
+    Redeem Dropdawg gift cards at checkout.
+  </Card>
+</Columns>
+
+## Order Tracking
+
+Monitor your order status in real-time from preparation to delivery. Our GPS tracking shows the driver's location and estimated arrival time.
+
+<CodeGroup tabs="iOS,Android">
+  ```swift
+  // iOS order tracking
+  orderManager.trackOrder(orderId: "12345") { status in
+      switch status {
+      case .preparing:
+          updateUI(with: "Restaurant is preparing your food")
+      case .ready:
+          updateUI(with: "Order ready for pickup")
+      case .outForDelivery:
+          updateUI(with: "Driver is on the way")
+      case .delivered:
+          updateUI(with: "Enjoy your meal!")
+      }
+  }
+  ```
+  ```kotlin
+  // Android order tracking
+  orderManager.trackOrder("12345")
+      .observe(this) { status ->
+          when (status) {
+              OrderStatus.PREPARING -> updateUI("Restaurant is preparing your food")
+              OrderStatus.READY -> updateUI("Order ready for pickup")
+              OrderStatus.OUT_FOR_DELIVERY -> updateUI("Driver is on the way")
+              OrderStatus.DELIVERED -> updateUI("Enjoy your meal!")
+          }
+      }
+  ```
+</CodeGroup>
+
+## Order History
+
+Access your complete order history to reorder favorites or track spending. View past orders, ratings, and receipts.
+
+<Expandable title="Reorder Feature" default-open="false">
+  Quickly reorder your favorite meals with one tap from your order history.
+</Expandable>
+
+<Expandable title="Order Receipts" default-open="false">
+  Download digital receipts for all completed orders for your records.
+</Expandable>
+
+## Managing Active Orders
+
+Handle changes to orders that are still in progress. Contact the restaurant or driver directly through the app.
+
+<ExpandableGroup>
+  <Expandable title="Cancel Order" default-open="false">
+    Cancel orders within 2 minutes of placement for a full refund.
+  </Expandable>
+  <Expandable title="Modify Order" default-open="false">
+    Contact the restaurant immediately if you need to change your order.
+  </Expandable>
+  <Expandable title="Delivery Issues" default-open="false">
+    Report problems like wrong items or delays through the app.
+  </Expandable>
+</ExpandableGroup>
+
+## Promotions and Discounts
+
+Take advantage of exclusive deals and promotions to save on your orders. Dropdawg regularly offers discounts, free delivery, and special menu items.
+
+<Callout kind="success">
+  Check the app daily for new promotions and limited-time offers.
+</Callout>
+
+## Order Ratings and Feedback
+
+Rate your experience after each delivery to help improve our service. Your feedback is valuable for both restaurants and drivers.
+
+<Expandable title="Rating System" default-open="false">
+  Rate orders on a 5-star scale and provide detailed feedback.
+</Expandable>
+
+<Expandable title="Driver Tips" default-open="false">
+  Tip your driver directly in the app for excellent service.
+</Expandable>
+
+This guide covers the essential aspects of managing orders with Dropdawg. For API integration details, refer to our developer documentation.

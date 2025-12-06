@@ -1,0 +1,175 @@
+---
+title: Restaurant Features
+description: Exploring restaurant listings and integration for Dropdawg partners
+---
+
+## Restaurant Discovery
+
+Dropdawg connects you with a diverse array of local restaurants, from casual eateries to fine dining establishments. Our platform features advanced search and filtering options to help you find exactly what you're craving.
+
+<Callout kind="info">
+  Use filters like cuisine type, price range, and delivery time to narrow down options.
+</Callout>
+
+## Browsing Restaurants
+
+Discover restaurants through multiple pathways in the Dropdawg app. Browse featured restaurants, search by location, or explore curated collections.
+
+<Tabs>
+  <Tab title="Featured Restaurants" icon="star">
+    Highlighted partners with high ratings and popular dishes.
+  </Tab>
+  <Tab title="Nearby Options" icon="map-pin">
+    Restaurants within your delivery radius, sorted by distance.
+  </Tab>
+  <Tab title="Cuisine Categories" icon="utensils">
+    Browse by food type: Italian, Chinese, Mexican, and more.
+  </Tab>
+</Tabs>
+
+## Restaurant Profiles
+
+Each restaurant profile provides comprehensive information to help you make informed decisions. View menus, read reviews, and check delivery details.
+
+<Columns cols={2}>
+  <Card title="Menu Details" icon="file-text" href="#restaurant-menu">
+    Full menu with prices, descriptions, and customization options.
+  </Card>
+  <Card title="Customer Reviews" icon="message-square" href="#restaurant-reviews">
+    Ratings and feedback from previous customers.
+  </Card>
+</Columns>
+
+<Columns cols={2}>
+  <Card title="Delivery Info" icon="truck" href="#delivery-details">
+    Delivery radius, time estimates, and minimum order requirements.
+  </Card>
+  <Card title="Restaurant Photos" icon="camera" href="#restaurant-gallery">
+    Images of the restaurant, dishes, and ambiance.
+  </Card>
+</Columns>
+
+## Restaurant Ratings and Reviews
+
+Customer reviews and ratings help you choose quality restaurants. Dropdawg's rating system considers food quality, service, and delivery experience.
+
+<Expandable title="Rating Breakdown" default-open="false">
+  View average ratings and detailed breakdowns by category.
+</Expandable>
+
+<Expandable title="Recent Reviews" default-open="false">
+  Read the latest customer feedback and restaurant responses.
+</Expandable>
+
+## Partnering with Dropdawg
+
+Restaurants interested in joining our delivery network can apply through our partner portal. We provide tools and support for seamless integration.
+
+<Steps>
+  <Step title="Apply Online" icon="file-text">
+    Submit your restaurant information through our partner application.
+  </Step>
+  <Step title="Verification Process" icon="check-circle">
+    Complete background checks and menu verification.
+  </Step>
+  <Step title="Integration Setup" icon="settings">
+    Install our ordering system and training.
+  </Step>
+  <Step title="Launch" icon="rocket">
+    Go live with Dropdawg delivery services.
+  </Step>
+</Steps>
+
+## Restaurant Dashboard
+
+Partner restaurants access a comprehensive dashboard to manage orders, update menus, and track performance metrics.
+
+<CodeGroup tabs="Web,Mobile">
+  ```javascript
+  // Restaurant dashboard API example
+  const dashboard = new RestaurantDashboard(apiKey);
+  
+  // Get current orders
+  dashboard.getOrders().then(orders => {
+      orders.forEach(order => {
+          console.log(`Order ${order.id}: ${order.status}`);
+      });
+  });
+  
+  // Update menu item
+  dashboard.updateMenuItem('pizza-margherita', {
+      price: 14.99,
+      available: true
+  });
+  ```
+  ```kotlin
+  // Mobile dashboard example
+  val dashboard = RestaurantDashboard(apiKey)
+  
+  // Get current orders
+  dashboard.getOrders().observe(this) { orders ->
+      orders.forEach { order ->
+          Log.d("Order", "${order.id}: ${order.status}")
+      }
+  }
+  
+  // Update menu item
+  dashboard.updateMenuItem("pizza-margherita", 
+      MenuItem(price = 14.99, available = true)
+  )
+  ```
+</CodeGroup>
+
+## Menu Management
+
+Restaurants can update menus in real-time through our dashboard. Add new items, modify prices, and manage availability.
+
+<Expandable title="Menu Updates" default-open="false">
+  Changes reflect immediately in the customer app.
+</Expandable>
+
+<Expandable title="Seasonal Items" default-open="false">
+  Highlight seasonal specials and limited-time offers.
+</Expandable>
+
+## Order Fulfillment
+
+Our system streamlines order processing from receipt to delivery handoff. Restaurants receive instant notifications and can track order status.
+
+<ExpandableGroup>
+  <Expandable title="Order Preparation" default-open="false">
+    Set preparation times and receive reminders for timely completion.
+  </Expandable>
+  <Expandable title="Quality Control" default-open="false">
+    Follow food safety guidelines and packaging standards.
+  </Expandable>
+  <Expandable title="Driver Handover" default-open="false">
+    Coordinate with drivers for smooth pickup and delivery.
+  </Expandable>
+</ExpandableGroup>
+
+## Performance Analytics
+
+Track restaurant performance with detailed analytics. Monitor order volume, customer satisfaction, and revenue trends.
+
+<Callout kind="tip">
+  Use analytics to optimize menu offerings and improve service quality.
+</Callout>
+
+## Support for Partners
+
+Dropdawg provides dedicated support for restaurant partners. Access training resources, technical assistance, and marketing tools.
+
+<Columns cols={3}>
+  <Card title="Training Resources" icon="book-open" href="#partner-training">
+    Onboarding guides and best practices.
+  </Card>
+  <Card title="Technical Support" icon="headphones" href="#partner-support">
+    24/7 assistance for integration issues.
+  </Card>
+  <Card title="Marketing Tools" icon="megaphone" href="#partner-marketing">
+    Promotional materials and co-branded campaigns.
+  </Card>
+</Columns>
+
+This guide covers the key features for restaurants on the Dropdawg platform. For detailed integration instructions, visit our partner portal.

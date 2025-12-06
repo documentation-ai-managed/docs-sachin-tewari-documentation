@@ -1,0 +1,169 @@
+---
+title: Authentication
+description: User authentication and account management for Dropdawg
+---
+
+## User Authentication Overview
+
+Dropdawg requires secure user authentication to ensure a personalized and safe experience. Our platform supports multiple login methods, including email/password combinations, social media logins, and biometric authentication on supported devices. All authentication processes use industry-standard encryption to protect your personal information.
+
+<Callout kind="info">
+  Enable two-factor authentication for enhanced account security.
+</Callout>
+
+## Account Creation
+
+Creating an account with Dropdawg is straightforward and takes less than two minutes. You can sign up using your email address or connect with popular social media platforms like Google or Facebook.
+
+<Steps>
+  <Step title="Download the App" icon="download">
+    Install Dropdawg from the App Store or Google Play.
+  </Step>
+  <Step title="Enter Personal Details" icon="user">
+    Provide your name, email, and phone number.
+  </Step>
+  <Step title="Verify Your Account" icon="check-circle">
+    Confirm your email or phone to activate your account.
+  </Step>
+  <Step title="Set Up Payment" icon="credit-card">
+    Add a payment method for seamless ordering.
+  </Step>
+</Steps>
+
+## Login Methods
+
+Dropdawg offers flexible login options to suit your preferences. Choose the method that works best for you.
+
+<Tabs>
+  <Tab title="Email & Password" icon="mail">
+    Use your registered email and a strong password.
+    
+    <CodeGroup tabs="iOS,Android">
+      ```swift
+      // iOS login example
+      let credentials = LoginCredentials(email: "user@example.com", password: "securePass123")
+      authManager.login(with: credentials) { result in
+          switch result {
+          case .success:
+              // Navigate to main screen
+              break
+          case .failure(let error):
+              // Show error message
+              break
+          }
+      }
+      ```
+      ```kotlin
+      // Android login example
+      val credentials = LoginCredentials("user@example.com", "securePass123")
+      authManager.login(credentials)
+          .addOnSuccessListener {
+              // Navigate to main screen
+          }
+          .addOnFailureListener { error ->
+              // Show error message
+          }
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Social Login" icon="share-2">
+    Connect with Google, Facebook, or Apple accounts.
+    
+    <CodeGroup tabs="iOS,Android">
+      ```swift
+      // iOS social login
+      let provider = OAuthProvider(providerID: "google.com")
+      auth.signIn(with: provider) { authResult, error in
+          // Handle result
+      }
+      ```
+      ```kotlin
+      // Android social login
+      val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+          .requestIdToken(getString(R.string.default_web_client_id))
+          .requestEmail()
+          .build()
+      val googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Biometric" icon="fingerprint">
+    Use fingerprint or face recognition on compatible devices.
+    
+    <CodeGroup tabs="iOS,Android">
+      ```swift
+      // iOS biometric auth
+      let context = LAContext()
+      var error: NSError?
+      if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+          context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Authenticate to access Dropdawg") { success, error in
+              // Handle result
+          }
+      }
+      ```
+      ```kotlin
+      // Android biometric auth
+      val biometricPrompt = BiometricPrompt(this, executor,
+          object : BiometricPrompt.AuthenticationCallback() {
+              override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                  // Success
+              }
+              override fun onAuthenticationFailed() {
+                  // Failed
+              }
+          })
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Password Management
+
+Maintain strong passwords and update them regularly for optimal security. Dropdawg provides tools to help you manage your account credentials effectively.
+
+<Expandable title="Forgot Password" default-open="false">
+  Click "Forgot Password" on the login screen, enter your email, and follow the reset instructions sent to your inbox.
+</Expandable>
+
+<Expandable title="Change Password" default-open="false">
+  Go to Account Settings, select "Security," and choose "Change Password" to update your credentials.
+</Expandable>
+
+## Account Security Features
+
+Dropdawg implements multiple layers of security to protect your account and personal information.
+
+<Columns cols={2}>
+  <Card title="Two-Factor Authentication" icon="shield" href="#2fa-setup">
+    Add an extra layer of protection with SMS or app-based verification.
+  </Card>
+  <Card title="Session Management" icon="clock" href="#session-control">
+    View and manage active sessions across devices.
+  </Card>
+</Columns>
+
+## Troubleshooting Login Issues
+
+If you encounter problems logging in, try these solutions before contacting support.
+
+<ExpandableGroup>
+  <Expandable title="App Not Responding" default-open="false">
+    Force close the app and restart it, or restart your device.
+  </Expandable>
+  <Expandable title="Invalid Credentials" default-open="false">
+    Double-check your email and password, ensuring caps lock is off.
+  </Expandable>
+  <Expandable title="Network Issues" default-open="false">
+    Switch to a different Wi-Fi network or use mobile data.
+  </Expandable>
+</ExpandableGroup>
+
+## Account Deactivation
+
+If you need to deactivate your account, contact our support team. We'll guide you through the process and ensure your data is handled according to our privacy policy.
+
+<Callout kind="alert">
+  Account deactivation is permanent and cannot be undone.
+</Callout>
+
+This authentication guide covers the essential aspects of managing your Dropdawg account. For more advanced features, refer to our API documentation or contact support.
